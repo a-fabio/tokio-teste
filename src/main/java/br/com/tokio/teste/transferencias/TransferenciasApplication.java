@@ -1,5 +1,6 @@
 package br.com.tokio.teste.transferencias;
 
+import br.com.tokio.teste.transferencias.enumerator.StatusTaxa;
 import br.com.tokio.teste.transferencias.model.Taxa;
 import br.com.tokio.teste.transferencias.repository.TaxaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,13 @@ public class TransferenciasApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		List<Taxa> taxasPredefinidas = new ArrayList<>();
 
-		taxasPredefinidas.add(new Taxa(null,0,0,new BigDecimal(3),2.5,Boolean.TRUE));
-		taxasPredefinidas.add(new Taxa(null,1,10,new BigDecimal(12),0.0,Boolean.TRUE));
-		taxasPredefinidas.add(new Taxa(null,11,20,new BigDecimal(0),8.2,Boolean.TRUE));
-		taxasPredefinidas.add(new Taxa(null,21,30,new BigDecimal(0),6.9,Boolean.TRUE));
-		taxasPredefinidas.add(new Taxa(null,31,40,new BigDecimal(0),4.7,Boolean.TRUE));
-		taxasPredefinidas.add(new Taxa(null,41,50,new BigDecimal(0),1.7,Boolean.TRUE));
+		taxasPredefinidas.add(new Taxa(null,0L,0L,new BigDecimal(3),2.5, StatusTaxa.ATIVA));
+		taxasPredefinidas.add(new Taxa(null,1L,10L,new BigDecimal(12),0.0,StatusTaxa.ATIVA));
+		taxasPredefinidas.add(new Taxa(null,11L,20L,new BigDecimal(0),8.2,StatusTaxa.ATIVA));
+		taxasPredefinidas.add(new Taxa(null,21L,30L,new BigDecimal(0),6.9,StatusTaxa.ATIVA));
+		taxasPredefinidas.add(new Taxa(null,31L,40L,new BigDecimal(0),4.7,StatusTaxa.ATIVA));
+		taxasPredefinidas.add(new Taxa(null,41L,50L,new BigDecimal(0),1.7,StatusTaxa.ATIVA));
 
-		taxasPredefinidas.forEach(taxaRepository::save);
+        taxaRepository.saveAll(taxasPredefinidas);
 	}
 }

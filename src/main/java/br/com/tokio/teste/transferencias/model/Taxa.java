@@ -1,5 +1,6 @@
 package br.com.tokio.teste.transferencias.model;
 
+import br.com.tokio.teste.transferencias.enumerator.StatusTaxa;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,10 +19,10 @@ public class Taxa {
     private Long id;
 
     @Column(name = "QTD_DIAS_MINIMO", updatable = false)
-    private Integer quantidadeMinimaDias;
+    private Long quantidadeMinimaDias;
 
     @Column(name = "QTD_DIAS_MAXIMO", updatable = false)
-    private Integer quantidadeMaximaDias;
+    private Long quantidadeMaximaDias;
 
     @Column(name = "VL_AGRAVO_DESCONTO", updatable = false)
     private BigDecimal valorAgravoDesconto;
@@ -29,7 +30,8 @@ public class Taxa {
     @Column(name = "VL_PORCENTAGEM_TAXA", updatable = false)
     private Double valorPorcentagemTaxa;
 
-    @Column(name = "FL_ATIVO")
-    private Boolean flagAtivo;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "NR_STATUS")
+    private StatusTaxa status;
 
 }

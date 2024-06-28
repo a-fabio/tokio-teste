@@ -9,3 +9,8 @@ spring:
   h2:
     console:
       enabled: true
+  application:
+    name: transferencias-api
+  jackson:
+    time-zone: America/Sao_Paulo
+

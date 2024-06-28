@@ -3,16 +3,19 @@ package br.com.tokio.teste.transferencias.controller;
 import br.com.tokio.teste.transferencias.model.Taxa;
 import br.com.tokio.teste.transferencias.service.TaxaService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/taxa")
+@RequestMapping("api/v1/taxa/")
 @Api(tags = "taxa")
 @Slf4j
 public class TaxaController {
@@ -21,7 +24,20 @@ public class TaxaController {
     TaxaService taxaService;
 
     @GetMapping
-    public List<Taxa> listar() {
-        return taxaService.listar();
+    @ApiOperation(value = "Listagem de todas as taxas ativas")
+    public List<Taxa> listarAtivas() {
+        return taxaService.listarAtivas();
+    }
+
+    @GetMapping("inativas")
+    @ApiOperation(value = "Listagem de todas as taxas inativas")
+    public List<Taxa> listarInativas() {
+        return taxaService.listarInativas();
+    }
+
+    @GetMapping("calcular/{dataTransferencia}/{valorTransferencia}")
+    @ApiOperation(value = "Calcular valor final da transferência incluindo taxas de acordo com data da realização")
+    public BigDecimal calcular(@PathVariable("dataTransferencia") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataTransferencia, @PathVariable("valorTransferencia") BigDecimal valorTransferencia) {
+        return taxaService.calcularValorTotalTransferencia(dataTransferencia, valorTransferencia);
     }
 }
