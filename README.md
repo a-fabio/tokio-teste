@@ -8,7 +8,7 @@
 ### Para executar
 
 1. Navegue até o diretório do projeto.
-2. Execute o comando `./mvnw spring-boot:run` para iniciar o servidor.
+2. Execute o comando `mvnw spring-boot:run` para iniciar o servidor.
 
 ### Ficha Técnica
 
