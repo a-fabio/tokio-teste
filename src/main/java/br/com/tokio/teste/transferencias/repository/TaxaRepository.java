@@ -15,6 +15,6 @@ import java.util.List;
 public interface TaxaRepository extends JpaRepository<Taxa, Long>, JpaSpecificationExecutor<Taxa> {
 
     @Query("SELECT t FROM Taxa t WHERE t.status = :status")
-    public Page<Taxa> findByStatus(final Pageable pageable, StatusTaxa status);
+    public List<Taxa> findByStatus(StatusTaxa status);
 
 }

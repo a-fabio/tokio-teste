@@ -1,8 +1,6 @@
 package br.com.tokio.teste.transferencias.controller;
 
-import br.com.tokio.teste.transferencias.dto.PaginacaoDTO;
 import br.com.tokio.teste.transferencias.model.Taxa;
-import br.com.tokio.teste.transferencias.paged.Pagina;
 import br.com.tokio.teste.transferencias.service.TaxaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/taxa/")
@@ -25,20 +24,8 @@ public class TaxaController {
 
     @GetMapping
     @ApiOperation(value = "Listagem de todas as taxas ativas")
-    public Pagina<Taxa> listarAtivas(final PaginacaoDTO paginacao) {
-        return taxaService.listarAtivas(paginacao);
-    }
-
-    @GetMapping("inativas")
-    @ApiOperation(value = "Listagem de todas as taxas inativas")
-    public Pagina<Taxa> listarInativas(final PaginacaoDTO paginacao) {
-        return taxaService.listarInativas(paginacao);
-    }
-
-    @GetMapping("inativar/{idTaxa}")
-    @ApiOperation(value = "Listagem de todas as taxas inativas")
-    public Taxa inativar(@PathVariable("idTaxa") final Long idTaxa) {
-        return taxaService.inativar(idTaxa);
+    public List<Taxa> listarAtivas() {
+        return taxaService.listarAtivas();
     }
 
     @GetMapping("calcular/{dataTransferencia}/{valorTransferencia}")

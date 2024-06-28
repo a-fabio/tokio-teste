@@ -1,14 +1,14 @@
 package br.com.tokio.teste.transferencias.service.impl;
 
-import br.com.tokio.teste.transferencias.dto.PaginacaoDTO;
 import br.com.tokio.teste.transferencias.dto.TransferenciaDTO;
 import br.com.tokio.teste.transferencias.model.Transferencia;
-import br.com.tokio.teste.transferencias.paged.Pagina;
 import br.com.tokio.teste.transferencias.repository.TransferenciaRepository;
 import br.com.tokio.teste.transferencias.service.TaxaService;
 import br.com.tokio.teste.transferencias.service.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TransferenciaServiceImpl implements TransferenciaService {
@@ -19,8 +19,8 @@ public class TransferenciaServiceImpl implements TransferenciaService {
     TaxaService taxaService;
 
     @Override
-    public Pagina<Transferencia> listar(PaginacaoDTO paginacaoDTO) {
-        return Pagina.fromPage(transferenciaRepository.findAll(paginacaoDTO.toPageable()));
+    public List<Transferencia> listar() {
+        return transferenciaRepository.findAll();
     }
 
     @Override

@@ -10,8 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +26,6 @@ public class TransferenciasApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println(LocalDate.now().toString());
 		List<Taxa> taxasPredefinidas = new ArrayList<>();
 
 		taxasPredefinidas.add(new Taxa(null,0L,0L,new BigDecimal(3),2.5, StatusTaxa.ATIVA));
