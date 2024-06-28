@@ -1,10 +1,10 @@
-package br.com.tokio.teste.transferenciasapi;
+package br.com.tokio.teste.transferencias;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TransferenciasApiApplicationTests {
+class TransferenciasApplicationTests {
 
 	@Test
 	void contextLoads() {
