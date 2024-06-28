@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "TAXA")
+@Table(name = "TRANSFERENCIA")
 @Data
 public class Transferencia {
 
