@@ -20,7 +20,7 @@ Lombok: Praticidade e facilidade de futuras implementações.
 
 H2: Banco sugerido pelo teste.
 
-Swagger: Facilitar a visualização dos endpoints expostos para integração com front-end
+Swagger: Facilitar a visualização dos endpoints expostos para integração com front-end. URL: `http://localhost:8080/swagger-ui/index.html`
 
 Slf4j log: Optei pelo Slf4j por atender ao que está sendo pedido e pensando na versatilidade em caso de implementação do logback. Não utilizei o antigo log4j por possuir vulnerabilidades, avisado no próprio site deles.
 
