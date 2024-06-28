@@ -6,19 +6,7 @@ public class TaxaAplicavelNaoEncontradaParaDataException extends RegraNegocioExc
 
     private static final long serialVersionUID = -5599970319445391416L;
 
-    public TaxaAplicavelNaoEncontradaParaDataException() {
-    }
-
     public TaxaAplicavelNaoEncontradaParaDataException(String msg) {
         super(msg);
     }
-
-    public TaxaAplicavelNaoEncontradaParaDataException(String msg, Throwable cause) {
-        super(msg, cause);
-    }
-
-    public TaxaAplicavelNaoEncontradaParaDataException(Throwable cause) {
-        super(cause);
-    }
-
 }
