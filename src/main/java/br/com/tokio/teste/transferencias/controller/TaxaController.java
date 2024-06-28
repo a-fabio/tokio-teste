@@ -35,6 +35,12 @@ public class TaxaController {
         return taxaService.listarInativas(paginacao);
     }
 
+    @GetMapping("inativar/{idTaxa}")
+    @ApiOperation(value = "Listagem de todas as taxas inativas")
+    public Taxa inativar(@PathVariable("idTaxa") final Long idTaxa) {
+        return taxaService.inativar(idTaxa);
+    }
+
     @GetMapping("calcular/{dataTransferencia}/{valorTransferencia}")
     @ApiOperation(value = "Calcular valor final da transferência incluindo taxas de acordo com data da realização")
     public BigDecimal calcular(@PathVariable("dataTransferencia") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataTransferencia, @PathVariable("valorTransferencia") BigDecimal valorTransferencia) {

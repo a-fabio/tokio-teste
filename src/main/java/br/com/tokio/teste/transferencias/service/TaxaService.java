@@ -11,10 +11,13 @@ import java.time.LocalDate;
 @Service
 public interface TaxaService {
 
+    Taxa inativar (Long idTaxa);
+
     Pagina<Taxa> listarAtivas(PaginacaoDTO paginacao);
 
     Pagina<Taxa> listarInativas(PaginacaoDTO paginacao);
 
     BigDecimal calcularValorTotalTransferencia(LocalDate dataTransferencia, BigDecimal valorTransferencia);
 
+    Taxa encontrarTaxaParaDataTransferencia(LocalDate dataTransferencia);
 }

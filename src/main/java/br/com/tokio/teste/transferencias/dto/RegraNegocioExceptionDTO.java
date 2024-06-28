@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Data
 @AllArgsConstructor
-public class RegraNegocioExceptionReturnDTO {
+public class RegraNegocioExceptionDTO {
 
     private final String mensagem;
     private final HttpStatus httpStatus;

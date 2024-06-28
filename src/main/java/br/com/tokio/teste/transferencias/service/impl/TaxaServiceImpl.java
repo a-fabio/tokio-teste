@@ -26,6 +26,15 @@ public class TaxaServiceImpl implements TaxaService {
     @Autowired private TaxaSpecification taxaSpecification;
 
     @Override
+    public Taxa inativar(Long idTaxa) {
+        Taxa taxaEncontrada = taxaRepository.getById(idTaxa);
+
+        taxaEncontrada.setStatus(StatusTaxa.INATIVA);
+
+        return taxaRepository.save(taxaEncontrada);
+    }
+
+    @Override
     public Pagina<Taxa> listarAtivas(PaginacaoDTO paginacao) {
         return Pagina.fromPage(taxaRepository.findByStatus(paginacao.toPageable(), StatusTaxa.ATIVA));
     }
@@ -45,7 +54,8 @@ public class TaxaServiceImpl implements TaxaService {
         return valorTransferencia.add(valorTaxa).add(taxaEncontrada.getValorAgravoDesconto());
     }
 
-    private Taxa encontrarTaxaParaDataTransferencia(LocalDate dataTransferencia) {
+    @Override
+    public Taxa encontrarTaxaParaDataTransferencia(LocalDate dataTransferencia) {
         Long intervaloDataTransferenciaDataAtual = calcularDiasAteTransferencia(dataTransferencia);
 
         Specification<Taxa> where = null;
